@@ -23,7 +23,7 @@ class Solution:
                 if node.right:
                     temp.append(node.right)
                 ans = ans + temp
-                node = None
+                return None
             
             return node
         head = helper(root)
