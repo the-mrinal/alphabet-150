@@ -11,14 +11,13 @@ class SnapshotArray:
     def snap(self) -> int:
         self.snap_id += 1
         return self.snap_id - 1
-    
         
 
     def get(self, index: int, snap_id: int) -> int:
-        while snap_id not in self.snaps[index] and snap_id > 0:
+        
+        while snap_id > 0 and snap_id not in self.snaps[index]:
             snap_id -= 1
         return self.snaps[index][snap_id]
-
 
 # Your SnapshotArray object will be instantiated and called as such:
 # obj = SnapshotArray(length)
