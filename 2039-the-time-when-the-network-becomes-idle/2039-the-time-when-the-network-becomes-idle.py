@@ -30,7 +30,8 @@ class Solution:
         timeReq = 0
         for dist,pat in zip(short,patience):
             if pat > 0:
-                currTime = (dist * 2) + (((dist * 2) - 1)//pat)*pat
+                offset = (dist*2) % pat if (dist*2) % pat > 0 else pat 
+                currTime = (dist * 2)*2 - offset
                 timeReq = max(timeReq,currTime)
         
         return timeReq + 1
